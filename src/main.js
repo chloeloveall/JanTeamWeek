@@ -3,7 +3,8 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import {openWidget, imgTransform, vidTransform} from './compressAPI.js';
+import {openWidget} from './js/compressAPI.js';
+import {imgTransform, vidTransform} from './js/transform.js'
 
 let fileInfo;
 
