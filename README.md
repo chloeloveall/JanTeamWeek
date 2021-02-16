@@ -1,6 +1,6 @@
 ![image that is 1280x650px](image.jpg)
 
-# _Nucleus Compression_
+# _Prescription_
 
 ![project license type](https://img.shields.io/github/license/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![top project language](https://img.shields.io/github/languages/top/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![last github commit](https://img.shields.io/github/last-commit/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![github pull requests](https://img.shields.io/github/issues-pr/BrianSturgis/JanTeamWeek?style=flat-square)
 
@@ -24,7 +24,7 @@
 
 ## Description
 
-Nucleus Compression utilizes the Cloudinary API and it's widget functionality to allow users to upload photos/videos from their computer, a webpage, Google Drive, Dropbox, Facebook, Instagram or Shutterstock. The image can then be compressed and manipulated with the click of a button. 
+Prescription utilizes the Cloudinary API and it's widget functionality to allow users to upload photos/videos from their computer, a webpage, Google Drive, Dropbox, Facebook, Instagram or Shutterstock. The image can then be compressed and manipulated with the click of a button. 
 
 ## Setup/Installation Requirements
 
@@ -34,10 +34,10 @@ Nucleus Compression utilizes the Cloudinary API and it's widget functionality to
 * Go to [Cloudinary](https://cloudinary.com/) to sign up for a free account. This will allow you to acquire a cloud name, API key, and API secret (can be through your account dashboard)
   * In your Cloudinary account, go to settings -> Upload -> Upload Presets
   * From the signing mode dropdown, select unsigned and then save the preset:
-  ![Cloudinary Settings Example](src/assets/cloudinary-settings-example.png)
+  ![Cloudinary Settings Example](src/assets/images/cloudinary-settings-example.png)
 * Create a ```.env``` file in the root directory of the project.***
   * Copy the cloud name, API key, API secret, and preset name from your Cloudinary account and paste into your ```.env``` file, but please note the example below does not contain real or valid information: 
-  ![.env Example](src/assets/env-example.png)
+  ![.env Example](src/assets/images/env-example.png)
 * Recreate the project environment/install required dependencies by running the terminal command: ```$ npm install```
 * Create the production environment by running the terminal command: ```$ npm run build```
 * Open the project in the browser of your choice with the terminal command: ```$ npm run start```
@@ -50,9 +50,7 @@ Nucleus Compression utilizes the Cloudinary API and it's widget functionality to
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
-
-Copyright (c) 2020 **Brian Sturgis, Zack Rutledge & Chloe Loveall**
+[MIT](LICENSE.md)
 
 ## Contact Information 
 
