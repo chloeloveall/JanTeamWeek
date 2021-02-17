@@ -4,19 +4,18 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
-import {imgTransform, vidTransform} from './js/transform.js'
+import {imgCompress, imgEffects, vidCompress} from './js/transform.js'
 
-let fileInfo;
 
 async function checkFileType(fileInfo){
 	if((fileInfo.secure_url.match(/.mov|.mp4|.avi$/))){
-		const video = await vidTransform(fileInfo);
+		const video = await vidCompress(fileInfo);
 		window.open(video);
-		$("#transform").hide();
+		$("#compress").hide();
 	} else if ((fileInfo.secure_url.match(/.jpe*g|.png|.gif|.svg$/))){
-		const photo = await imgTransform(fileInfo);
+		const photo = await imgCompress(fileInfo);
 		window.open(photo);
-		$("#transform").hide();
+		$("#compress").hide();
 	}
 }
 
@@ -26,13 +25,19 @@ $(document).ready(function(){
 	$("#widget").append("<script src ='https://widget.cloudinary.com/v2.0/global/all.js' type='text/javascript'></script>");
 	$("#open-widget").on('click', async function(){
 		await openWidget();
-		$("#transform").delay(1000).fadeIn();
+		let fileInfo;
+		$("#compress").delay(1000).fadeIn();
 		//After widget is opened adds event listener to console log the value of resultInfo in local storage
-		$("#transform").on('click', async function(){
+		$("#compress").on('click', async function(){
 			$("#form").show()
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo')); 
 			checkFileType(fileInfo);
 			console.log(fileInfo);
+		});
+		$("#test").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const photo = await imgEffects(fileInfo, $("#test").val());
+			window.open(photo);
 		});
 	});
 });
