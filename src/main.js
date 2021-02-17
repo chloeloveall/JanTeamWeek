@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
 
-import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidPreview, vidSloMo} from './js/transform.js'
+import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidPreview, vidSloMo, vidToGif} from './js/transform.js'
 
 
 
@@ -71,5 +71,10 @@ $(document).ready(function(){
       window.open(slomoVid);
     })
 
+    $('#gif').on('click', async function() {
+      fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+      const gif = await vidToGif(fileInfo, $('#gif').val());
+      window.open(gif);
+    })
 	});
 });
