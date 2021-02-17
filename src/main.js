@@ -44,14 +44,14 @@ $(document).ready(function(){
 		// Add scaling to user image
 		$("#someBSButton").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const photo = await imgScaling(fileInfo, $("#bsbutton").val());
+			const photo = await imgScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val(), $("#bsCropInput").val());
 			window.open(photo);
 		});
 		// Add preview of video user uploads
-		// $("#otherBSButton").on('click', async function(){
-			// fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			// const video = await vidPreview(fileInfo);
-			// window.open(video)
-		// });
+		$("#otherBSButton").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const video = await vidPreview(fileInfo);
+			window.open(video)
+		});
 	});
 });
