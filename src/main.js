@@ -4,9 +4,8 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
-import {imgTransform, vidTransform} from './js/transform.js'
+import {imgTransform, imgEffects, vidTransform} from './js/transform.js'
 
-let fileInfo;
 
 async function checkFileType(fileInfo){
 	if((fileInfo.secure_url.match(/.mov|.mp4|.avi$/))){
@@ -30,7 +29,8 @@ $(document).ready(function(){
 		//After widget is opened adds event listener to console log the value of resultInfo in local storage
 		$("#transform").on('click', async function(){
 			$("#form").show()
-			fileInfo = JSON.parse(localStorage.getItem('resultInfo')); 
+			let fileInfo;
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
 			checkFileType(fileInfo);
 			console.log(fileInfo);
 		});
