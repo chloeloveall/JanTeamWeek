@@ -4,7 +4,12 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
-import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidScaling} from './js/transform.js'
+
+import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidScaling, vidSloMo} from './js/transform.js'
+
+
+
+
 
 async function checkFileType(fileInfo){
 	if((fileInfo.secure_url.match(/.mov|.mp4|.avi$/))){
@@ -46,16 +51,32 @@ $(document).ready(function(){
 			const photo = await imgScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val());
 			window.open(photo);
 		});
+
 		// Add facial recognition with auto blur effect
     $("#blurred").on('click', async function() {
+
+		
+
       fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-      const blurredPhoto = await imgBlurFace(fileInfo, $("#blurred").val());
+      const blurredPhoto = await imgBlurFace(fileInfo, $('#blurred').val());
       window.open(blurredPhoto);
+
     });
 		$("#moarBSButton").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
 			const video = await vidScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val());
 			window.open(video);
 		});
+
+    })
+
+    // Uses video file in local storage and adds slo motion effect
+    $('#slomo').on('click', async function() {
+      fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+      const slomoVid = await vidSloMo(fileInfo, $('#slomo').val());
+      window.open(slomoVid);
+    })
+
+
 	});
 });
