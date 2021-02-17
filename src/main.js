@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
 
-import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidPreview} from './js/transform.js'
+import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidPreview, vidSloMo} from './js/transform.js'
 
 
 
@@ -57,10 +57,18 @@ $(document).ready(function(){
 			window.open(video)
 		});
 
-    $("#blurred").on('click', async function() {
+    // Uses image file in local storage and adds blur option on click
+    $('#blurred').on('click', async function() {
       fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-      const blurredPhoto = await imgBlurFace(fileInfo, $("#blurred").val());
+      const blurredPhoto = await imgBlurFace(fileInfo, $('#blurred').val());
       window.open(blurredPhoto);
+    })
+
+    // Uses video file in local storage and adds slo motion effect
+    $('#slomo').on('click', async function() {
+      fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+      const slomoVid = await vidSloMo(fileInfo, $('#slomo').val());
+      window.open(slomoVid);
     })
 
 	});
