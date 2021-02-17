@@ -16,7 +16,6 @@ export function imgEffects(url, userInput){
 	return effectedImg;
 }
 
-
 // Function to allow scaling and cropping of img's for user
 export function imgScaling(url, uiWidth, uiHeight, uiCrop){
 	const scaledImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: `${uiCrop}`, flags: "attachment"});
@@ -42,4 +41,10 @@ export function vidPreview(url){
 		{audioCodec: "none"}
   ]}).toHtml();
 	return previewedVid;
+}
+
+// Function to add slow motion effect to video from local storage
+export function vidSloMo (url) {
+  const slowMoVid = cl.video_url(`${url.public_id}.mp4`, {quality: "auto", effect: "accelerate:-50", flags: "attachment"});
+  return slowMoVid;
 }
