@@ -1,83 +1,38 @@
-body {
-  background-image: url("./../assets/teen_week_final_ui_splashpage.jpg");
-  background-color: #cccccc;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}
 
-#open-widget {
-  position: absolute;
-  left: 145px;
-  top: 430px;
-  color: transparent;
-  width: 368px;
-  height: 150px;
-}
-
-#transform {
-  position: absolute;
-  left: 145px;
-  top: 660px;
-  color: transparent;
-  width:470px;
-  height: 220px;
-}
-
-.drop-zone {
-  max-width: 200px;
-  height: 200px;
-  padding: 25px;
+body   {
+  width: 80vw;
+  height:46.9vw;
+  padding: 0%;
+  margin: 2%;
+  background-image: linear-gradient(aqua, purple);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 20px;
-  cursor: pointer;
-  color: gray;
-  border: 4px dashed blueviolet;
-  border-radius: 40px;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: space-around;
+  color: rgb(255, 255, 255);
+}
+
+#test {
   position: absolute;
-  right: 345px;
-  top: 330px;
+  left: 145px;
+  top: 400px;
+  background-color: aqua;
+  width: 100px;
+  height: 50px;
 }
 
-.drop-zone--over {
-  border-style: solid;
-}
-
-.drop-zone__input {
-  display: none;
-}
-
-.drop-zone__thumb {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  background: rgb(192, 192, 192);
-  background-size: cover;
-  position: relative;
-}
-
-.drop-zone__thumb::after {
-  content: attr(data-label);
+#open-widget.btn {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 5px 0;
-  color: white;
-  background: rgba(0, 0, 0, 0.75);
-  font-size: 14px;
-  text-align: center;
+  left: 145px;
+  top: 530px;
+  background-color: aqua;
+  width: 100px;
+  height: 50px;
 }
 
-#form{
-  display: none;
+#compress {
+  position: absolute;
+  left: 145px;
+  top: 630px;
+  background-color: aqua;
+  width: 100px;
+  height: 50px;
 }

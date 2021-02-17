@@ -4,20 +4,23 @@
     <title>GREETINGS PROGRAMS</title>
   </head>
 <body>
-
-
-  <div class="container" id="widget">
-    <button class="btn" id="open-widget"></button>
-    <button class="btn" id="transform"></button>
-  </div>
-
-  <form action="./upload-file" method="post" enctype="multipart/form-data" id="form">
-    <div class="drop-zone">
-      <span class="drop-zone__prompt">Drop file here to view file size difference</span>
-      <span class="output"></span>
-      <input type="file" name="myFile" class="drop-zone__input">
+  <div class="wrapper">
+    <div class="container" id="widget">
+      <button class="btn" id="open-widget">open</button>
+      <button class="btn" id="compress">compress</button>
+      <!--Add button to blur faces-->
+      <button class="btn" id="blurred">Blur Faces</button>
     </div>
-  </form>
-
+    <div class="checkBox">
+      <select class="custom-select" id="test">
+        <option value="art:audrey">audrey</option>
+        <option value="art:daguerre">daguerre</option>
+        <option value="art:incognito">incognito</option>
+        <option value="art:red_rock">red_rock</option>
+        <option value="art:zorro">zorro</option>
+        <option value="art:primavera">primavera</option>
+      </select>
+    </div>
+  </div>
 </body>
 </html>
