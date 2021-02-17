@@ -1,60 +1,61 @@
-# _Nucleus Compression_  version 2.0
+![image that is 1280x650px](image.jpg)
 
-#### _A program to compress files for various websites, Feb.15, 2021_
+# _Prescription_
+
+![project license type](https://img.shields.io/github/license/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![top project language](https://img.shields.io/github/languages/top/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![last github commit](https://img.shields.io/github/last-commit/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![github pull requests](https://img.shields.io/github/issues-pr/BrianSturgis/JanTeamWeek?style=flat-square)
+
+#### _A program that compresses images or videos, with the option to apply filters_
 
 #### By _**Brian Sturgis, Zack Rutledge & Chloe Loveall**_
 
+## Technologies Used
+
+* Adobe Photoshop
+* Bootstrap 4.6.0 ???
+* CSS
+* eslint 6.3.0
+* HTML
+* JavaScript ES6
+* Jest 24.9.0
+* jQuery 3.5.1
+* Node Package Manager 6.14.9
+* Postman 8.0.4
+* webpack 4.39.3
+
 ## Description
 
-Nucleus Compression is a program that allows a user to upload a photo or video and compress it.
+Prescription utilizes the Cloudinary API and it's widget functionality to allow users to upload photos/videos from their computer, a webpage, Google Drive, Dropbox, Facebook, Instagram or Shutterstock. The image can then be compressed and manipulated with the click of a button. 
 
 ## Setup/Installation Requirements
 
-* _Open terminal on computer._
-* _Navigate to Desktop._
-* _Type "git clone   " into command line and press ENTER._
-* _Navigate to "team_week" folder and enter "code ." into command line and press ENTER to open in VS Code._
-* _Create folder titled ".env" in root directory of program. This is needed to store the key for the API._
-    * _Create a free account with Cloudinary.com. You will be asked to verify your account through email._
-    * _Upon logging in, go to Account Details, and find the following details:_
-        * _Cloud Name_
-        * _API Key_
-        * _API Secret_
+* Clone the repository with the following git terminal command: ```$ git clone https://github.com/BrianSturgis/JanTeamWeek.git```
+* Open the project directory in your terminal
+* Confirm you have installed [Node](https://www.learnhowtoprogram.com/intermediate-javascript/getting-started-with-javascript/installing-node-js) and [Node Package Manager](https://www.learnhowtoprogram.com/intermediate-javascript/test-driven-development-and-environments-with-javascript/building-a-manifest-file-with-npm) 
+* Go to [Cloudinary](https://cloudinary.com/) to sign up for a free account. This will allow you to acquire a cloud name, API key, and API secret (can be through your account dashboard)
+  * In your Cloudinary account, go to settings -> Upload -> Upload Presets
+  * From the signing mode dropdown, select unsigned and then save the preset:
+  ![Cloudinary Settings Example](src/assets/images/cloudinary-settings-example.png)
+* Create a ```.env``` file in the root directory of the project.***
+  * Copy the cloud name, API key, API secret, and preset name from your Cloudinary account and paste into your ```.env``` file, but please note the example below does not contain real or valid information: 
+  ![.env Example](src/assets/images/env-example.png)
+* Recreate the project environment/install required dependencies by running the terminal command: ```$ npm install```
+* Create the production environment by running the terminal command: ```$ npm run build```
+* Open the project in the browser of your choice with the terminal command: ```$ npm run start```
 
-        Copy the string of characters after these categories into your ".env" file like so:
-        * CLOUD_NAME = (Cloud Name string)
-        * COMPRESS_KEY = (API Key string)
-        * COMPRESS_SECRET = (API Secret string)
-
-        Lastly, go to Settings, click on the Upload tab, and scroll to Upload Presets. There likely will be a default setting (ml_default). Either
-        copy this, or create your own preset and use that. Place into ".env" like so:
-        * UPLOAD_PRESET = (Upload presets name)
-
-* _Type "npm install" into command line and press ENTER._
-* _Type "npm run build" into command line and press ENTER._
-* _Type "npm run start" into command line and press ENTER to run program._
-
-
-## Technologies Used
-
-* _HTML, CSS, Javascript, Jquery, Adobe Photoshop._
-* _Node.js, CL, ESLint, Webpack, GitHub._
-* _Postman._
+***A ```.env``` file along with the ```dotenv-webpack``` will keep your API key secure. [Read more about API key security](https://www.learnhowtoprogram.com/intermediate-javascript/asynchrony-and-apis/managing-api-keys).
 
 ## Known Bugs
 
-_There are currently no known bugs._
+* None at this time 
 
-## Support and contact details
+## License
 
-_For support, contact:_
+[MIT](LICENSE.md)
+
+## Contact Information 
 
 _Brian Sturgis <sturujisu@gmail.com>_<br>
 _Zack Rutledge <thorgrim88@gmail.com>_<br>
 _Chloe Loveall <chloeloveall@protonmail.com>_<br>
 
-## Legal
-
-*This program is available using an MIT License.*
-
-Copyright (c) 2020 ** Brian Sturgis, Zack Rutledge & Chloe Loveall **
+![github forks](https://img.shields.io/github/forks/BrianSturgis/JanTeamWeek?label=Forks&style=social) &nbsp; ![github stars](https://img.shields.io/github/stars/BrianSturgis/JanTeamWeek?style=social) &nbsp; ![github watchers](https://img.shields.io/github/watchers/BrianSturgis/JanTeamWeek?style=social)
