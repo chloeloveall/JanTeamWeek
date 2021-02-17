@@ -15,6 +15,12 @@ export function imgEffects(url, userInput){
 	return effectedImg;
 }
 
+// Function to blur all faces in photo
+export function imgBlurFace(url) {
+  const blurredImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", effect: "blur_faces:1000", flags: "attachment"});
+  return blurredImg;
+}
+
 // Function to Compress video file type as Mp4 for web opitmization
 export function vidCompress (url){
 	const compressedVid = cl.video_url(`${url.public_id}.mp4`, {quality: "auto", flags: "attachment"});
