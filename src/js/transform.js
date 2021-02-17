@@ -44,7 +44,12 @@ export function vidPreview(url){
 }
 
 // Function to add slow motion effect to video from local storage
-export function vidSloMo (url) {
+export function vidSloMo(url) {
   const slowMoVid = cl.video_url(`${url.public_id}.mp4`, {quality: "auto", effect: "accelerate:-50", flags: "attachment"});
   return slowMoVid;
+}
+
+export function vidToGif(url) {
+  const gif = cl.video_url(`${url.public_id}.gif`, {videoSampling: "40", delay: "200", height: 200, effect: "loop", crop: "scale", quality: "auto", flags: "attachment"});
+  return gif;
 }
