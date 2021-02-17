@@ -4,7 +4,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
-import {imgCompress, imgEffects, vidCompress} from './js/transform.js'
+import {imgCompress, imgEffects, imgBlurFace, vidCompress} from './js/transform.js'
 
 
 async function checkFileType(fileInfo){
@@ -39,5 +39,10 @@ $(document).ready(function(){
 			const photo = await imgEffects(fileInfo, $("#test").val());
 			window.open(photo);
 		});
+    $("#blurred").on('click', async function() {
+      fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+      const blurredPhoto = await imgBlurFace(fileInfo, $("#blurred").val());
+      window.open(blurredPhoto);
+    })
 	});
 });
