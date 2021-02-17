@@ -35,9 +35,8 @@ $(document).ready(function(){
 			console.log(fileInfo);
 		});
 		$("#test").on('click', async function(){
-			$("#testUI").show()
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const photo = await imgEffects(fileInfo, $("#testInput").val());
+			const photo = await imgEffects(fileInfo, $("#test").val());
 			window.open(photo);
 		});
 	});

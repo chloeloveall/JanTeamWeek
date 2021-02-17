@@ -11,7 +11,7 @@ export function imgCompress(url){
 
 // Function to add Effect Options for Users(i.e. instagram photo filters)
 export function imgEffects(url, userInput){
-	const effectedImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", effect:`${userInput}`});
+	const effectedImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", effect:`${userInput}`, flags: "attachment"});
 	return effectedImg;
 }
 
