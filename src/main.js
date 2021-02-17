@@ -4,7 +4,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
-import {imgCompress, imgEffects, vidCompress} from './js/transform.js'
+import {imgCompress, imgEffects, imgScaling, vidCompress, vidPreview} from './js/transform.js'
 
 
 async function checkFileType(fileInfo){
@@ -27,7 +27,7 @@ $(document).ready(function(){
 		await openWidget();
 		let fileInfo;
 		$("#compress").delay(1000).fadeIn();
-		//After widget is opened adds event listener to console log the value of resultInfo in local storage
+		// After widget is opened adds event listener to console log the value of resultInfo in local storage
 		$("#compress").on('click', async function(){
 			$("#form").show()
 			let fileInfo;
@@ -35,10 +35,23 @@ $(document).ready(function(){
 			checkFileType(fileInfo);
 			console.log(fileInfo);
 		});
+		// Add a filter to currently uploaded photo
 		$("#test").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
 			const photo = await imgEffects(fileInfo, $("#test").val());
 			window.open(photo);
 		});
+		// Add scaling to user image
+		$("#someBSButton").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const photo = await imgScaling(fileInfo, $("#bsbutton").val());
+			window.open(photo);
+		});
+		// Add preview of video user uploads
+		// $("#otherBSButton").on('click', async function(){
+			// fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			// const video = await vidPreview(fileInfo);
+			// window.open(video)
+		// });
 	});
 });
