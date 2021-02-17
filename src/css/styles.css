@@ -1,83 +1,106 @@
-body {
-  background-image: url("./../assets/teen_week_final_ui_splashpage.jpg");
-  background-color: #cccccc;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+body   {
+  width: 100%;
+  height:100%;
+  padding: 0%;
+  margin: 2%;
+  
+  display: flex;
+  justify-content: space-around;
+  color: rgb(255, 255, 255);
 }
 
-#open-widget {
+#test {
   position: absolute;
   left: 145px;
-  top: 430px;
-  color: transparent;
-  width: 368px;
-  height: 150px;
+  top: 400px;
+  background-color: aqua;
+  width: 100px;
+  height: 50px;
 }
 
-#transform {
+#open-widget.btn {
   position: absolute;
   left: 145px;
-  top: 660px;
-  color: transparent;
-  width:470px;
-  height: 220px;
+  top: 530px;
+  background-color: aqua;
+  width: 100px;
+  height: 50px;
 }
 
-.drop-zone {
-  max-width: 200px;
-  height: 200px;
-  padding: 25px;
+#compress {
+  position: absolute;
+  left: 145px;
+  top: 630px;
+  background-color: aqua;
+  width: 100px;
+  height: 50px;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  font-weight: 20px;
-  cursor: pointer;
-  color: gray;
-  border: 4px dashed blueviolet;
-  border-radius: 40px;
-  margin-left: auto;
-  margin-right: auto;
+  background: #000000; 
+}
+
+#enter {
   position: absolute;
-  right: 345px;
-  top: 330px;
+  /* background-color: aqua; */
+  left: 1340px;
+  top: 550px;
+  color: aqua;  
+  font-family: 'Press Start 2P', cursive;
+  width: 105px;
+  height: 80px;
 }
 
-.drop-zone--over {
-  border-style: solid;
+.txt {
+  color: #ffffff;
+  background:#000000;
+  font-size:170px;
+  font-weight: bold;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: lowercase;
 }
 
-.drop-zone__input {
-  display: none;
+.txt::before {
+  content: 'welcome';
+  position: absolute;
+  mix-blend-mode: difference;
+  filter: blur(3px);
 }
 
-.drop-zone__thumb {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
+.neon-wrapper {
+  display:inline-flex;
+  filter: brightness(500%);
   overflow: hidden;
-  background: rgb(192, 192, 192);
-  background-size: cover;
-  position: relative;
 }
 
-.drop-zone__thumb::after {
-  content: attr(data-label);
+.gradient{
+  background: linear-gradient(114.5793141156962deg, rgb(56, 72, 214) 4.927083333333334%,rgb(89, 64, 229) 97.84374999999999%);
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  left:0;
   width: 100%;
-  padding: 5px 0;
-  color: white;
-  background: rgba(0, 0, 0, 0.75);
-  font-size: 14px;
-  text-align: center;
+  height:100%;
+  mix-blend-mode: multiply;
 }
 
-#form{
-  display: none;
+.dodge {
+  background: radial-gradient(circle,white,black 35%) center / 25% 25%;
+  position: absolute;
+  top:-100%;
+  left:-100%;
+  right:0;
+  bottom:0;
+  mix-blend-mode: color-dodge;
+  animation: dodge-area 8s linear infinite;
+}
+
+@keyframes dodge-area {
+  to {
+  transform: translate(50%,50%);
+  }
 }
