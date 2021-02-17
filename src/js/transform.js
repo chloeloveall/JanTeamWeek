@@ -16,10 +16,16 @@ export function imgEffects(url, userInput){
 	return effectedImg;
 }
 
+
 // Function to allow scaling and cropping of img's for user
 export function imgScaling(url, uiWidth, uiHeight, uiCrop){
 	const scaledImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: `${uiCrop}`, flags: "attachment"});
 	return scaledImg;
+}
+// Function to blur all faces in photo
+export function imgBlurFace(url) {
+  const blurredImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", effect: "blur_faces:1000", flags: "attachment"});
+  return blurredImg;
 }
 
 // Function to Compress video file type as Mp4 for web opitmization
