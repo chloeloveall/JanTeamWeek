@@ -16,7 +16,6 @@ export function imgEffects(url, userInput, formatInput){
 	return effectedImg;
 }
 
-
 // Function to allow scaling of img's for user
 export function imgScaling(url, uiWidth, uiHeight, formatInput){
 	const scaledImg = cl.url(`${url.public_id}${formatInput}`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});

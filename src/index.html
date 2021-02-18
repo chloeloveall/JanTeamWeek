@@ -21,56 +21,60 @@
           <span>N</span>
         </h1>
       </div>
+      <div class="neonSubTitle">
+        <h2>A tool for developers</h2>
+      </div>
       <main>
         <div class="container1" id="widget">
-          <button class="btn" id="open-widget">upload media</button>
-          <button class="btn" id="blurred">Blur Faces</button>
-          <button class="btn" id="filterButton">Apply filter</button>
-          <button class="btn" id="compress">compress</button>
+          <button class="btn btn-primary btn-lg btn-block" id="open-widget">Upload Media</button>
+          <h2>Photos</h2>
           <select class="custom-select" id="filterInput">
-            <option>select a filter</option>
+            <option>Select a Filter</option>
             <option value="art:audrey">Black & White 1</option>
             <option value="art:daguerre">Black & White 2</option>
             <option value="art:incognito">Black & White 3</option>
-            <option value="art:red_rock">red_rock</option>
-            <option value="art:zorro">zorro</option>
-            <option value="art:primavera">primavera</option>
+            <option value="art:red_rock">Red Rock</option>
+            <option value="art:zorro">Zorro</option>
+            <option value="art:primavera">Primavera</option>
           </select>
           <select class="custom-select" id="uiFormatImg">
-            <option>must select file type to use filter</option>
+            <option>Must select file type to use filter</option>
             <option value=".jpg">jpg</option>
             <option value=".png">png</option>
-            <option value=".svg">svg</option>
           </select>
-        </div>
+          <button class="btn" id="blurred">Blur Faces</button>
+          <button class="btn" id="filterButton">Apply Filter</button>
+          <button class="btn" id="compress">Compress Media</button>
+          <h2>Universal Settings</h2>
           <div class="inputs">
             <label for="bsWidthInput">W.</label>
             <input type="number" id="imgWidthInput">
             <label for="bsHeightInput">H.</label>
             <input type="number" id="imgHeightInput">
-            <button class="btn" id="cropPic">Trim Picture</button>
-          </div>
-          <div class="video">
-            <label for="startInput">in</label>
-            <input type="number" id="startInput">
-            <label for="endInput">out</label>
-            <input type="number" id="endInput">
+            <button class="btn" id="cropPic">Crop Picture</button>
             <button class="btn" id="cropVidBtn">Crop Video</button>
-            <button class="btn" id="trimBtn">Trim Video</button>
-            <button class="btn" id="slomo">Slow Motion </button>
-            <button class="btn" id="gif">Make GIF</button>
           </div>
+          <h2>Videos</h2>
           <div class="checkBox" id="vidFormat">
             <select class="custom-select" id="uiFormatVid">
-              <option value="">file type?</option>
+              <option value="">File Type?</option>
               <option value=".mov">.mov</option>
               <option value=".mp4">MP4</option>
             </select>
           </div>
-          <br>
+          <div class="video">
+            <label for="startInput">IN</label>
+            <input type="number" id="startInput">
+            <label for="endInput">OUT</label>
+            <input type="number" id="endInput">
+            <button class="btn" id="trimBtn">Trim Video</button>
+            <button class="btn" id="slomo">Slow Motion </button>
+            <button class="btn" id="gif">Make GIF</button>
+          </div>
         </div>
-        <div class="error">
-        </div>
+      </div>
+      <div class="error">
+      </div>
       </main>
     </div>
   </body>
