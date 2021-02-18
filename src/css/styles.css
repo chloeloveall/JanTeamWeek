@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 /* body   {
   width: 100vh;
   height:100vh;
+=======
+
+body   {
+  width: 80vw;
+  height:46.9vw;
+>>>>>>> 66198cdc168171ea47f7cd5dce4f42797967bfb3
   padding: 0%;
   margin: 2%;
   background-image: linear-gradient(aqua, purple);
