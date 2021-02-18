@@ -1,35 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 * {
   padding: 0%;
   margin: 0%;
 }
 
 main {
+  font-family: 'Anton', sans-serif;
   background: rgb(145, 255, 0);
   padding: 1rem;
   border-radius: 60px;
   width: 50%;
   position: relative;
-  left: 270px;
+  left: 275px;
 }
-
+.custom-select {
+  background-color: #00b3ff;
+}
 .container {
-  padding-bottom: 10%;
+  padding-bottom: 4%;
 }
 
 input, button {
   outline: none;
+  
 }
 
 input {
-  background: rgb(31, 39, 152);
+  background: rgb(105, 105, 109);
   width: 220px;
-  height: 60px;
+  height: 50px;
   padding: 16px 32px;
   text-align: right;
   border: none;
   border-radius: 30px;
   grid-gap: 0.9rem;
-  margin-top: 20px;
+  margin-top: 17px;
 }
 
 
@@ -44,15 +50,13 @@ body {
 
 h1{
   color: #fff;
-      text-shadow: 0 0 10px #00b3ff;
+  text-shadow: 0 0 10px #00b3ff;
   margin: 100px;
   text-align: center;
   display: flex;
   justify-content: center;
   position: sticky;
 }
-
-
 
 h1 span {
   display: table-cell;
