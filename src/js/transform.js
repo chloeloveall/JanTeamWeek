@@ -11,20 +11,20 @@ export function imgCompress(url, formatInput){
 }
 
 // Function to add Effect Options for Users(i.e. instagram photo filters) Attachment flag allows auto-download
-export function imgEffects(url, userInput){
-	const effectedImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", effect:`${userInput}`, flags: "attachment"});
+export function imgEffects(url, userInput, formatInput){
+	const effectedImg = cl.url(`${url.public_id}${formatInput}`, {quality: "auto", effect:`${userInput}`, flags: "attachment"});
 	return effectedImg;
 }
 
 // Function to allow scaling of img's for user
-export function imgScaling(url, uiWidth, uiHeight){
-	const scaledImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});
+export function imgScaling(url, uiWidth, uiHeight, formatInput){
+	const scaledImg = cl.url(`${url.public_id}${formatInput}`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});
 	return scaledImg;
 }
 
 // Function to blur all faces in photo
-export function imgBlurFace(url) {
-  const blurredImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", effect: "blur_faces:1000", flags: "attachment"});
+export function imgBlurFace(url, formatInput) {
+  const blurredImg = cl.url(`${url.public_id}${formatInput}`, {quality: "auto", effect: "blur_faces:1000", flags: "attachment"});
   return blurredImg;
 }
 
@@ -35,13 +35,13 @@ export function vidCompress (url, formatInput){
 }
 
 // Function to allow scaling of video's for user
-export function vidScaling(url, uiWidth, uiHeight){
-	const scaledVid = cl.video_url(`${url.public_id}.mp4`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});
+export function vidScaling(url, uiWidth, uiHeight, formatInput){
+	const scaledVid = cl.video_url(`${url.public_id}${formatInput}`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});
 	return scaledVid;
 }
 
 // Function to allow trimming of Video's Length
-export function vidTrimming(url, uiStart, uiEnd){
-	const trimmedVid = cl.video_url(`${url.public_id}.mp4`, {quality: "auto", startOffset:`${uiStart}`, endOffset:`${uiEnd}`, flags: "attachment"});
+export function vidTrimming(url, uiStart, uiEnd, formatInput){
+	const trimmedVid = cl.video_url(`${url.public_id}${formatInput}`, {quality: "auto", startOffset:`${uiStart}`, endOffset:`${uiEnd}`, flags: "attachment"});
 	return trimmedVid;
 }
