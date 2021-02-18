@@ -8,7 +8,7 @@ import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidScaling
 
 async function checkFileType(fileInfo){
 	if((fileInfo.secure_url.match(/.mov|.mp4|.avi$/))){
-		const video = await vidCompress(fileInfo, $("#uiFormatvid").val());
+		const video = await vidCompress(fileInfo, $("#uiFormatVid").val());
 		window.open(video);
 		$("#compress").hide();
 	} else if ((fileInfo.secure_url.match(/.jpe*g|.png|.gif|.svg$/))){
