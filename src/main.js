@@ -4,19 +4,17 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
-import {imgTransform, vidTransform} from './js/transform.js'
-
-let fileInfo;
+import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidScaling, vidSloMo, vidTrimming, vidToGif} from './js/transform.js'
 
 async function checkFileType(fileInfo){
 	if((fileInfo.secure_url.match(/.mov|.mp4|.avi$/))){
-		const video = await vidTransform(fileInfo);
+		const video = await vidCompress(fileInfo, $("#uiFormatVid").val());
 		window.open(video);
-		$("#transform").hide();
+		$("#compress").hide();
 	} else if ((fileInfo.secure_url.match(/.jpe*g|.png|.gif|.svg$/))){
-		const photo = await imgTransform(fileInfo);
+		const photo = await imgCompress(fileInfo, $("#uiFormatImg").val());
 		window.open(photo);
-		$("#transform").hide();
+		$("#compress").hide();
 	}
 }
 
@@ -26,13 +24,57 @@ $(document).ready(function(){
 	$("#widget").append("<script src ='https://widget.cloudinary.com/v2.0/global/all.js' type='text/javascript'></script>");
 	$("#open-widget").on('click', async function(){
 		await openWidget();
-		$("#transform").delay(1000).fadeIn();
-		//After widget is opened adds event listener to console log the value of resultInfo in local storage
-		$("#transform").on('click', async function(){
+		let fileInfo;
+		$("#compress").delay(1000).fadeIn();
+		// After widget is opened adds event listener to console log the value of resultInfo in local storage
+		$("#compress").on('click', async function(){
 			$("#form").show()
-			fileInfo = JSON.parse(localStorage.getItem('resultInfo')); 
+			let fileInfo;
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
 			checkFileType(fileInfo);
 			console.log(fileInfo);
 		});
+		// Add a filter to currently uploaded photo
+		$("#test").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const photo = await imgEffects(fileInfo, $("#test").val(), $("#uiFormatImg").val());
+			window.open(photo);
+		});
+		// Add scaling to user image
+		$("#someBSButton").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const photo = await imgScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val(), $("#uiFormatImg").val());
+			window.open(photo);
+		});
+		// Add facial recognition with auto blur effect
+    $("#blurred").on('click', async function() {
+      fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+      const blurredPhoto = await imgBlurFace(fileInfo, $("#blurred").val(), $("#uiFormatImg").val());
+      window.open(blurredPhoto);
+    });
+		// Vid Scaling Functionality
+		$("#moarBSButton").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const video = await vidScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val(), $("#uiFormatVid").val());
+			window.open(video);
+		});
+		// Vid Trimming Functionality
+		$("#trimBtn").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const video = await vidTrimming(fileInfo, $("#startInput").val(), $("#endInput").val(), $("#uiFormatVid").val());
+			window.open(video);
+		});
+    // Uses video file in local storage and adds slo motion effect
+    $('#slomo').on('click', async function() {
+      fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+      const slomoVid = await vidSloMo(fileInfo, $('#slomo').val(), $("#uiFormatVid").val());
+      window.open(slomoVid);
+    })
+    
+    $('#gif').on('click', async function() {
+      fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+      const gif = await vidToGif(fileInfo, $('#gif').val());
+      window.open(gif);
+    })
 	});
 });
