@@ -2,7 +2,8 @@
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/styles.css';
+// import './css/styles.css';
+import './css/uiStyles.css';
 import {openWidget} from './js/compressAPI.js';
 import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidScaling, vidSloMo, vidTrimming, vidToGif} from './js/transform.js'
 
@@ -35,15 +36,15 @@ $(document).ready(function(){
 			console.log(fileInfo);
 		});
 		// Add a filter to currently uploaded photo
-		$("#test").on('click', async function(){
+		$("#filterButton").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const photo = await imgEffects(fileInfo, $("#test").val(), $("#uiFormatImg").val());
+			const photo = await imgEffects(fileInfo, $("#filterInput").val(), $("#uiFormatImg").val());
 			window.open(photo);
 		});
-		// Add scaling to user image
-		$("#someBSButton").on('click', async function(){
+		// Allow user to scale the image to different sizes and aspect ratios
+		$("#cropPic").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const photo = await imgScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val(), $("#uiFormatImg").val());
+			const photo = await imgScaling(fileInfo, $("#imgWidthInput").val(), $("#imgHeightInput").val(), $("#uiFormatImg").val());
 			window.open(photo);
 		});
 		// Add facial recognition with auto blur effect
@@ -52,13 +53,13 @@ $(document).ready(function(){
       const blurredPhoto = await imgBlurFace(fileInfo, $("#blurred").val(), $("#uiFormatImg").val());
       window.open(blurredPhoto);
     });
-		// Vid Scaling Functionality
-		$("#moarBSButton").on('click', async function(){
+		// Allow user to scale the video to different sizes and aspect ratios
+		$("#cropVidBtn").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const video = await vidScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val(), $("#uiFormatVid").val());
+			const video = await vidScaling(fileInfo, $("#vidWidthInput").val(), $("#vidHeightInput").val(), $("#uiFormatVid").val());
 			window.open(video);
 		});
-		// Vid Trimming Functionality
+		// Allow user to trim length of video off front and back end of file
 		$("#trimBtn").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
 			const video = await vidTrimming(fileInfo, $("#startInput").val(), $("#endInput").val(), $("#uiFormatVid").val());
@@ -70,7 +71,7 @@ $(document).ready(function(){
       const slomoVid = await vidSloMo(fileInfo, $('#slomo').val(), $("#uiFormatVid").val());
       window.open(slomoVid);
     })
-    
+    // Convert video file into a GIF
     $('#gif').on('click', async function() {
       fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
       const gif = await vidToGif(fileInfo, $('#gif').val());
