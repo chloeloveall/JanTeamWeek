@@ -53,3 +53,8 @@ export function vidSloMo (url, formatInput) {
   const slowMoVid = cl.video_url(`${url.public_id}${formatInput}`, {quality: "auto", effect: "accelerate:-50", flags: "attachment"});
   return slowMoVid;
 }
+
+export function vidToGif(url) {
+  const gif = cl.video_url(`${url.public_id}.gif`, {videoSampling: "40", delay: "200", height: 200, effect: "loop", crop: "scale", quality: "auto", flags: "attachment"});
+  return gif;
+}
