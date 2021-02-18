@@ -1,15 +1,15 @@
-body   {
+/* body   {
   width: 100vh;
   height:100vh;
   padding: 0%;
   margin: 2%;
   background-image: linear-gradient(aqua, purple);
-  display: flex;
+  /* display: flex;
   justify-content: space-around;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255); */
 }
 
-#test {
+/* #test {
   position: absolute;
   left: 145px;
   top: 400px;
@@ -43,4 +43,4 @@ body   {
 .container {
   padding-top: 10%;
 }
-
+ */ 
