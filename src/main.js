@@ -4,15 +4,15 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import {openWidget} from './js/compressAPI.js';
-import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidScaling} from './js/transform.js'
+import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidScaling, vidTrimming} from './js/transform.js'
 
 async function checkFileType(fileInfo){
 	if((fileInfo.secure_url.match(/.mov|.mp4|.avi$/))){
-		const video = await vidCompress(fileInfo);
+		const video = await vidCompress(fileInfo, $("#uiFormatvid").val());
 		window.open(video);
 		$("#compress").hide();
 	} else if ((fileInfo.secure_url.match(/.jpe*g|.png|.gif|.svg$/))){
-		const photo = await imgCompress(fileInfo);
+		const photo = await imgCompress(fileInfo, $("#uiFormatImg").val());
 		window.open(photo);
 		$("#compress").hide();
 	}
@@ -55,6 +55,11 @@ $(document).ready(function(){
 		$("#moarBSButton").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
 			const video = await vidScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val());
+			window.open(video);
+		});
+		$("#trimBtn").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const video = await vidTrimming(fileInfo, $("#startInput").val(), $("#endInput").val());
 			window.open(video);
 		});
 	});
