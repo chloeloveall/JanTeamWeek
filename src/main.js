@@ -36,15 +36,15 @@ $(document).ready(function(){
 			console.log(fileInfo);
 		});
 		// Add a filter to currently uploaded photo
-		$("#test").on('click', async function(){
+		$("#filterButton").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const photo = await imgEffects(fileInfo, $("#test").val(), $("#uiFormatImg").val());
+			const photo = await imgEffects(fileInfo, $("#filterInput").val(), $("#uiFormatImg").val());
 			window.open(photo);
 		});
 		// Add scaling to user image
-		$("#someBSButton").on('click', async function(){
+		$("#cropPic").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const photo = await imgScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val(), $("#uiFormatImg").val());
+			const photo = await imgScaling(fileInfo, $("#imgWidthInput").val(), $("#imgHeightInput").val(), $("#uiFormatImg").val());
 			window.open(photo);
 		});
 		// Add facial recognition with auto blur effect
@@ -54,9 +54,9 @@ $(document).ready(function(){
       window.open(blurredPhoto);
     });
 		// Vid Scaling Functionality
-		$("#moarBSButton").on('click', async function(){
+		$("#cropVidBtn").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const video = await vidScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val(), $("#uiFormatVid").val());
+			const video = await vidScaling(fileInfo, $("#vidWidthInput").val(), $("#vidHeightInput").val(), $("#uiFormatVid").val());
 			window.open(video);
 		});
 		// Vid Trimming Functionality
