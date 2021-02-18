@@ -16,6 +16,7 @@ export function imgEffects(url, userInput, formatInput){
 	return effectedImg;
 }
 
+
 // Function to allow scaling of img's for user
 export function imgScaling(url, uiWidth, uiHeight, formatInput){
 	const scaledImg = cl.url(`${url.public_id}${formatInput}`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});
@@ -34,6 +35,7 @@ export function vidCompress (url, formatInput){
 	return compressedVid;
 }
 
+
 // Function to allow scaling of video's for user
 export function vidScaling(url, uiWidth, uiHeight, formatInput){
 	const scaledVid = cl.video_url(`${url.public_id}${formatInput}`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});
@@ -44,4 +46,10 @@ export function vidScaling(url, uiWidth, uiHeight, formatInput){
 export function vidTrimming(url, uiStart, uiEnd, formatInput){
 	const trimmedVid = cl.video_url(`${url.public_id}${formatInput}`, {quality: "auto", startOffset:`${uiStart}`, endOffset:`${uiEnd}`, flags: "attachment"});
 	return trimmedVid;
+}
+
+// Function to add slow motion effect to video from local storage
+export function vidSloMo (url, formatInput) {
+  const slowMoVid = cl.video_url(`${url.public_id}${formatInput}`, {quality: "auto", effect: "accelerate:-50", flags: "attachment"});
+  return slowMoVid;
 }
