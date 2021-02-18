@@ -2,7 +2,8 @@
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/styles.css';
+// import './css/styles.css';
+import './css/uiStyles.css';
 import {openWidget} from './js/compressAPI.js';
 import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidScaling, vidSloMo, vidTrimming, vidToGif} from './js/transform.js'
 
