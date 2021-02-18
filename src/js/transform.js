@@ -16,11 +16,13 @@ export function imgEffects(url, userInput){
 	return effectedImg;
 }
 
-// Function to allow scaling and cropping of img's for user
-export function imgScaling(url, uiWidth, uiHeight, uiCrop){
-	const scaledImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: `${uiCrop}`, flags: "attachment"});
+
+// Function to allow scaling of img's for user
+export function imgScaling(url, uiWidth, uiHeight){
+	const scaledImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});
 	return scaledImg;
 }
+
 // Function to blur all faces in photo
 export function imgBlurFace(url) {
   const blurredImg = cl.url(`${url.public_id}.jpg`, {quality: "auto", effect: "blur_faces:1000", flags: "attachment"});
@@ -33,23 +35,21 @@ export function vidCompress (url){
 	return compressedVid;
 }
 
-export function vidPreview(url){
-	const previewedVid = cl.video_url(`${url.public_id}.mp4`, {transformation: [
-		{width: 400, duration: "8", crop: "scale"},
-		{overlay: new cloudinary.Layer().publicId(`${url.public_id}.mp4`), startOffset: "0", endOffset: "8"},
-		{startOffset: "0", flags: ["layer_apply", "splice"], width: 400, crop: "scale"},
-		{audioCodec: "none"}
-  ]}).toHtml();
-	return previewedVid;
-}
+
+// Function to allow scaling of video's for user
+export function vidScaling(url, uiWidth, uiHeight){
+	const scaledVid = cl.video_url(`${url.public_id}.mp4`, {quality: "auto", width:`${uiWidth}`, height:`${uiHeight}`, crop: "scale", flags: "attachment"});
+	return scaledVid;
+
 
 // Function to add slow motion effect to video from local storage
 export function vidSloMo(url) {
   const slowMoVid = cl.video_url(`${url.public_id}.mp4`, {quality: "auto", effect: "accelerate:-50", flags: "attachment"});
   return slowMoVid;
+
 }
 
 export function vidToGif(url) {
   const gif = cl.video_url(`${url.public_id}.gif`, {videoSampling: "40", delay: "200", height: 200, effect: "loop", crop: "scale", quality: "auto", flags: "attachment"});
   return gif;
-}
+

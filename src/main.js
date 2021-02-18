@@ -9,6 +9,10 @@ import {imgCompress, imgEffects,imgBlurFace, imgScaling, vidCompress, vidPreview
 
 
 
+
+
+
+
 async function checkFileType(fileInfo){
 	if((fileInfo.secure_url.match(/.mov|.mp4|.avi$/))){
 		const video = await vidCompress(fileInfo);
@@ -43,25 +47,29 @@ $(document).ready(function(){
 			const photo = await imgEffects(fileInfo, $("#test").val());
 			window.open(photo);
 		});
-
 		// Add scaling to user image
 		$("#someBSButton").on('click', async function(){
 			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const photo = await imgScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val(), $("#bsCropInput").val());
+			const photo = await imgScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val());
 			window.open(photo);
 		});
-		// Add preview of video user uploads
-		$("#otherBSButton").on('click', async function(){
-			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
-			const video = await vidPreview(fileInfo);
-			window.open(video)
-		});
 
-    // Uses image file in local storage and adds blur option on click
-    $('#blurred').on('click', async function() {
+		// Add facial recognition with auto blur effect
+    $("#blurred").on('click', async function() {
+
+		
+
       fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
       const blurredPhoto = await imgBlurFace(fileInfo, $('#blurred').val());
       window.open(blurredPhoto);
+
+    });
+		$("#moarBSButton").on('click', async function(){
+			fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
+			const video = await vidScaling(fileInfo, $("#bsWidthInput").val(), $("#bsHeightInput").val());
+			window.open(video);
+		});
+
     })
 
     // Uses video file in local storage and adds slo motion effect
@@ -71,10 +79,13 @@ $(document).ready(function(){
       window.open(slomoVid);
     })
 
+
     $('#gif').on('click', async function() {
       fileInfo = JSON.parse(localStorage.getItem('resultInfo'));
       const gif = await vidToGif(fileInfo, $('#gif').val());
       window.open(gif);
     })
+
+
 	});
 });
