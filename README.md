@@ -1,4 +1,4 @@
-![image that is 1280x650px](image.jpg)
+![image of web](src/assets/images/UIscreenshot.JPG)
 
 # _Prescription_
 
