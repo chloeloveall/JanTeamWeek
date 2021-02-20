@@ -1,4 +1,6 @@
-![image of web](src/assets/images/UIscreenshot.JPG)
+
+![image of web application](src/assets/images/uiscreenshot.jpg)
+
 
 # _Prescription_
 
@@ -6,25 +8,22 @@
 #### By _**Brian Sturgis, Zack Rutledge & Chloe Loveall**_
 <br>
 
-![license](https://img.shields.io/github/license/BrianSturgis/JanTeamWeek?color=blue&style=flat-square) &nbsp; ![top project language](https://img.shields.io/github/languages/top/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![last github commit](https://img.shields.io/github/last-commit/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![github pull requests](https://img.shields.io/github/issues-pr/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![open issues](https://img.shields.io/github/issues-raw/BrianSturgis/JanTeamWeek?color=red&style=flat-square) &nbsp; ![github contributors](https://img.shields.io/github/contributors/BrianSturgis/JanTeamWeek?style=flat-square)
+![license](https://img.shields.io/github/license/BrianSturgis/JanTeamWeek?color=blue&style=flat-square) &nbsp; ![top project language](https://img.shields.io/github/languages/top/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![last github commit](https://img.shields.io/github/last-commit/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![github pull requests](https://img.shields.io/github/issues-pr/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![open issues](https://img.shields.io/github/issues-raw/BrianSturgis/JanTeamWeek?style=flat-square) &nbsp; ![github contributors](https://img.shields.io/github/contributors/BrianSturgis/JanTeamWeek?style=flat-square)
 
 ## Table of Contents
 
 1. [Table of Contents](#table-of-contents)
-2. [Demo/Preview](#demo/preview)
-3. [Technologies Used](#technologies-used)
-4. [Description](#description)
-5. [Setup/Installation Requirements](#setup/installation-requirements)
+2. [Technologies Used](#technologies-used)
+3. [Description](#description)
+4. [Setup/Installation Requirements](#setup/installation-requirements)
     * [Installation](#installation)
-    * [Cloudinary API Setup](#cloudinary-api-setup) 
-6. [Usage](#usage)
-7. [Contributing](#contributing)
-8. [Known Bugs](#known-bugs)
-9. [License](#license)
-10. [Acknowledgements](#acknowledgements)
-11. [Contact Information](#contact-information)
-
-## Demo/Preview
+    * [Cloudinary API Setup](#cloudinary-api-setup)
+    * [API Security](#api-security)
+5. [Contributing](#contributing)
+6. [Known Bugs](#known-bugs)
+7. [License](#license)
+8. [Acknowledgements](#acknowledgements)
+9. [Contact Information](#contact-information)
 
 ## Technologies Used
 
@@ -49,28 +48,26 @@ Current image manipulations include: Instagram-esque filter effects, facial blur
 
 ## Setup/Installation Requirements
 
-#### Installation
+### Installation
 * Clone the repository with the following git terminal command: ```$ git clone https://github.com/BrianSturgis/JanTeamWeek.git```
 * Open the project directory in your terminal
-* Confirm you have installed [Node](https://www.learnhowtoprogram.com/intermediate-javascript/getting-started-with-javascript/installing-node-js) and [Node Package Manager](https://www.learnhowtoprogram.com/intermediate-javascript/test-driven-development-and-environments-with-javascript/building-a-manifest-file-with-npm)
+* Confirm you have installed [Node](https://nodejs.org/en/download/) and [Node Package Manager](https://www.npmjs.com/get-npm)
 * Recreate the project environment/install required dependencies by running the terminal command: ```$ npm install```
 * Create the production environment by running the terminal command: ```$ npm run build```
 * Open the project in the browser of your choice with the terminal command: ```$ npm run start```
 
-#### Cloudinary API Setup 
+### Cloudinary API Setup 
 * Go to [Cloudinary](https://cloudinary.com/) to sign up for a free account. This will allow you to acquire a cloud name, API key, and API secret (can be viewed through your account dashboard)
   * In your Cloudinary account, go to: Settings -> Upload -> Upload presets -> Add upload preset
   * From the "Signing Mode" dropdown, select unsigned and then save the preset:
   ![Cloudinary Settings Example](src/assets/images/cloudinary-settings-example.png)
 
-#### API Security  
+### API Security  
 * Create a ```.env``` file in the root directory of the project.***
   * Copy the cloud name, API key, API secret, and preset name from your Cloudinary account and paste into your ```.env``` file, but please note the example below does not contain real or valid information: 
   ![.env Example](src/assets/images/env-example.png)
 
 ***A ```.env``` file along with the ```dotenv-webpack``` will keep your API key secure. [Read more about API key security](https://www.learnhowtoprogram.com/intermediate-javascript/asynchrony-and-apis/managing-api-keys).
-
-## Usage
 
 ## Contributing
 
@@ -93,6 +90,10 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Acknowledgements
 
+* [Max Brockbank](https://github.com/MaxBrockbank)
+* [Chelsea Becker](https://github.com/cschweig2)
+* [Glen Buck](https://github.com/glenbuck503)
+* [Garrett Brown](https://github.com/GBProductions)
 * [Shields](https://shields.io/)
 * [Choose an open source license](https://choosealicense.com/)
 * [GitHub Pages](https://pages.github.com/)
